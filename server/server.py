@@ -13,17 +13,17 @@ class InMemoryDatabase:
 
     def add_client(self, client_id, name):
         self.clients[client_id] = {"name": name, "guesses": []}
-        self.leaderboard[client_id] = 0  # Инициализация количества попыток
+        self.leaderboard[client_id] = 0
 
     def remove_client(self, client_id):
         if client_id in self.clients:
             del self.clients[client_id]
-            del self.leaderboard[client_id]  # Удаляем клиента из таблицы лидеров
+            del self.leaderboard[client_id]
 
     def add_guess(self, client_id, guess):
         if client_id in self.clients:
             self.clients[client_id]["guesses"].append(guess)
-            self.leaderboard[client_id] += 1  # Увеличиваем счетчик попыток
+            self.leaderboard[client_id] += 1
 
     def get_clients(self):
         return {client_id: data["name"] for client_id, data in self.clients.items()}
