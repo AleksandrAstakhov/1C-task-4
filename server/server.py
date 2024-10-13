@@ -6,9 +6,9 @@ app = Flask(__name__)
 
 class InMemoryDatabase:
     def __init__(self):
-        self.clients = {}  # {client_id: {'name': name, 'guesses': []}}
-        self.experiments = {}  # {experiment_id: {'secret_number': number, 'clients': []}}
-        self.leaderboard = {}  # {client_id: attempts_count}
+        self.clients = {}
+        self.experiments = {}
+        self.leaderboard = {}
         self.experiment_started = False
 
     def add_client(self, client_id, name):
